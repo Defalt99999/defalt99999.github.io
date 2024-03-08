@@ -1,7 +1,113 @@
 <!DOCTYPE html>
 <html>
+    <!-- Hello, welcome again to my source code, if you even bothered to check it. What tools did i use this time? Javascript. You'd better admire the over-work I put into this stupid thing -->
     <head>
         <title>xXTheDestroyer999999Xx's World</title>
-        
+        <link rel="icon" type="image/x-icon" href="https://defalt99999.github.io/favicon_smiley.ico">
+        <style>
+            #container {
+                position: relative;
+                width: 100vw;
+                height: 240vh;
+                margin: 0px;
+                padding: 0px;
+            }
+            #image {
+                position: absolute;
+                top: 0;
+                left: 0;
+                margin: 0px;
+                padding: 0px;
+            }
+            #overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                margin: 0px;
+                padding: 0px;
+                width: 100%;
+                height: 100%;
+            }
+            #flexboxthingy {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                background-color: rgba(51, 51, 51, 0.44);
+                margin-left: 7vw;
+                margin-right: 7vw;
+                width: 86vw;
+                height: 240vh;
+            }
+            body {
+                margin: 0px;
+                padding: 0px;
+                background-color: black;
+                color: red;
+                text-align: center;
+            }
+        </style>
     </head>
+    <body>
+        <div id="container">
+            <img id="image" src="./dvd.png">
+        </div>
+        <div id="overlay">
+            <div id="flexboxthingy">
+                <h1 style="margin: 0px;">Hello! Welcome to</h1>
+                <img src="./cooltext.gif">
+                <p>Hello! I am xXTheDestroyer999999Xx, and I like 3 things: Being cool, Explosions, and Kittens. <br>Welcome to my very much not a parody website</p>
+                <video width="240" height="427" controls>
+                    <source src="boogers.mp4" type="video/mp4">
+                    Sorry! Your browser doesn't support videos :/ No boogers for you!
+                </video>
+                <p>This is Boogers McGee, he is my cat.A nd he is a jerk.</p>
+                <img src="./grilled.png" height="300px">
+                <p>This is a grilled cheese sandwich I made the other year, but I'm allergic to cheese, it makes my eyes pucker up and red and swollen, so I removed the cheese. I call it a grilled.</p>
+                <img src="./awesome.gif">
+                <h1>About Me</h1>
+                <img src="./thumbsup.png" height="400">
+                <p>This is a real picture of me. I like being cool, that is why I have sunglasses on. Cool people always have many sunglasses, one for each occasion.
+                    <br>
+                    My email is realemail@cooldudesrealdomainthatreallyexistsjusttrustmebro.com
+                </p>
+            </div>
+        </div>
+        <script>
+            const container = document.getElementById('container');
+            const image = document.getElementById('image');
+            let x = 0;
+            let y = 0;
+            let dx = 2;
+            let dy = 2;
+            let imageHue = Math.floor(Math.random() * 360);
+
+            function changeImageColor() {
+                imageHue += 180;
+                image.style.filter = `hue-rotate(${imageHue}deg)`;
+            }
+            function incrementImageColor() {
+                imageHue += 1;
+                image.style.filter = `hue-rotate(${imageHue}deg)`;                
+            }
+
+            changeImageColor();
+        
+            function moveImage() {
+                x += dx;
+                y += dy;
+                if (x + image.width >= container.offsetWidth || x <= 0) {
+                    dx = -dx;
+                    changeImageColor();
+                }
+                if (y + image.height >= container.offsetHeight || y <= 0) {
+                    dy = -dy;
+                    changeImageColor();
+                }
+                image.style.left = x + 'px';
+                image.style.top = y + 'px';
+            }
+            setInterval(moveImage, 10);
+            setInterval(incrementImageColor, 10);
+        </script>
+    </body>
 </html>
